@@ -1,19 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import { Provider } from 'react-redux';
+import React, {Component} from 'react';
+import {observer} from 'mobx-react'
 import App from './App';
 
+@observer
 export default class Root extends Component {
-
-  static propTypes = {
-    store: PropTypes.object.isRequired
-  };
-
-  render() {
-    const { store } = this.props;
-    return (
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-  }
+    render() {
+        return (
+            <App store={this.props.store} />
+        );
+    }
 }
